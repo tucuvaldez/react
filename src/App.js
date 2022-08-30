@@ -1,9 +1,12 @@
-
-function App() {
+import NavBar from "./components/NavBar";
+import './app/styles.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+const App = () => {
   return (
-    <div className="App">
-      <p>Hola</p>
-    </div>
+
+    <NavBar />
+
+
   );
 }
 
