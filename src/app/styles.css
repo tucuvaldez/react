@@ -10,3 +10,6 @@
     flex-direction: row;
     justify-content: flex-end;
 } */
+#basic-nav-dropdown {
+    justify-content: flex-end;
+}
