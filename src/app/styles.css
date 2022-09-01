@@ -13,3 +13,8 @@
 #basic-nav-dropdown {
     justify-content: flex-end;
 }
+
+#logo {
+    width: 150px;
+    height: 100%;
+}
