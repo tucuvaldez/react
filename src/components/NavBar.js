@@ -10,7 +10,7 @@ function NavBar() {
         <>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="#home"><img src={foto} alt="logo" id="logo" /></Navbar.Brand>
+                    <Navbar.Brand href="#home"><img src={foto} alt="logo" id='logo' /></Navbar.Brand>
                     <div>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">

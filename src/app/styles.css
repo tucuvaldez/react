@@ -15,6 +15,17 @@
 }
 
 #logo {
-    width: 150px;
+    width: 250px;
     height: 100%;
+}
+
+.counter {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 10px;
+}
+
+.counter h3 {
+    padding: 10px;
 }
