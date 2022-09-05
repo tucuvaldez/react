@@ -20,7 +20,7 @@ export const Item = ({ listaVino }) => {
                             <Card.Text>
                                 ${item.precio}
                             </Card.Text>
-                            <ItemCount />
+                            <ItemCount stock={item.stock} />
                             <Button variant="primary">Comprar</Button>
                         </Card.Body>
                     </Card>
