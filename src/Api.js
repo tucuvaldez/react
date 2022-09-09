@@ -10,8 +10,8 @@ class Vino {
     }
 }
 
-const listaVino = [
-    new Vino("Los Haroldos", "tinto", "Malbec", 1200, "./assets/los-haroldos-estate-malbec-mrbeef.jpg", 1, 15),
+export const listaVino = [
+    new Vino("Los Haroldos", "tinto", "Malbec", 1200, './assets/los-haroldos-estate-malbec-mrbeef.jpg', 1, 15),
     new Vino("Los Haroldos", "tinto", "Cabernet Sauvignon", 900, "./assets/Los-haroldos-cabernet.png", 2, 10),
     new Vino("Los Haroldos", "tinto", "Bonarda", 1100, "./assets/Los-Haroldos-Bonarda.png", 3, 12),
     new Vino("Los Haroldos", "blanco", "Chardonnay", 700, "./assets/los-haroldos-chardonnay.png", 4, 22),
@@ -32,15 +32,5 @@ const listaVino = [
     new Vino("El Esteco", "tinto", "Cabernet Sauvignon", 1350, "./assets/elestecocabernetsauvignon.jpg", 19),
     new Vino("El Esteco", "blanco", "Blanc de Blancs", 1500, "./assets/elesteco-blanc.png", 20)
 ]
-
-export const getProductos = () => {
-
-    const task = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(listaVino)
-        }, 2000)
-    });
-    return task;
-}
 
 
