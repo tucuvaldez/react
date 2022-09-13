@@ -4,13 +4,12 @@ import Card from 'react-bootstrap/Card';
 import ItemCount from './ItemCount'
 
 
-export const Item = ({ item }) => {
 
-    const onAdd = (cant) => {
-        alert(`Se agregaron ${cant} unidad al carrito`)
-    }
+export const Item = ({ item, onAdd }) => {
+
     return (
-        <div>
+
+        <div className="column">
             <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src={item.img} />
                 <Card.Body>
@@ -23,6 +22,7 @@ export const Item = ({ item }) => {
                     </Card.Text>
                     <ItemCount stock={item.stock} onAdd={onAdd} initial={0} />
                     <Button variant="primary">Comprar</Button>
+                    <Button >Ver detalle</Button>
 
                 </Card.Body>
             </Card>

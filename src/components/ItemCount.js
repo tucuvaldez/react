@@ -13,7 +13,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         setCant(cant + 1);
         setQuantity(quantity - 1)
     }
-
+    onAdd = (cant) => {
+        alert(`Se agregaron ${cant} unidad al carrito`)
+    }
 
     return (
         <div className='counter'>

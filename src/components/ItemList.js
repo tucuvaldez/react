@@ -3,7 +3,7 @@ import Item from './Item'
 import { listaVino } from '../Api'
 
 
-const getProductos = () => {
+export const getProductos = () => {
 
     const task = new Promise((resolve, reject) => {
         setTimeout(() => {
