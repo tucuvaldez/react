@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import foto from '../assets/logo.png'
+// import foto from '../../assets/logo.png'
 import { NavLink } from 'react-router-dom'
 import CartWidget from './CartWidget';
 
@@ -11,7 +11,7 @@ function NavBar() {
         <>
             <Navbar bg="light" expand="lg">
                 <Container>
-                    <Navbar.Brand href="/"><img src={foto} alt="logo" id='logo' /></Navbar.Brand>
+                    <Navbar.Brand href="/"><img src='/assets/logo.png' alt="logo" id='logo' /></Navbar.Brand>
                     <div>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
