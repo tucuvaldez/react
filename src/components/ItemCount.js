@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
     const [cant, setCant] = React.useState(0);
-    const [quantity, setQuantity] = React.useState(stock)
+    const [quantity, setQuantity] = React.useState()
     const decrease = () => {
         setCant(cant - 1);
         setQuantity(quantity + 1);
