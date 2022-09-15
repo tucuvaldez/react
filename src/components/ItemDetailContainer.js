@@ -14,13 +14,13 @@ const getItem = () => {
 
 const ItemDetailContainer = ({ onAdd }) => {
 
-    const [data, setData] = useState([]);
+    const [data, setData] = useState();
     const { detalleId } = useParams()
 
     useEffect(() => {
         getItem().then(response => setData(response.find(item => item.id === parseInt(detalleId))))
     })
-    return <ItemDetail data={data} onAdd={onAdd} />
+    return data && <ItemDetail data={data} onAdd={onAdd} />
 }
 
 

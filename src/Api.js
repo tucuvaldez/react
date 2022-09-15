@@ -1,3 +1,5 @@
+import malbec from './assets/los-haroldos-estate-malbec-mrbeef.jpg'
+
 class Vino {
     constructor(marca, tipoVino, varietal, precio, img, id, stock) {
         this.marca = marca
@@ -11,7 +13,7 @@ class Vino {
 }
 
 export const listaVino = [
-    new Vino("Los Haroldos", "tinto", "Malbec", 1200, './assets/los-haroldos-estate-malbec-mrbeef.jpg', 1, 15),
+    new Vino("Los Haroldos", "tinto", "Malbec", 1200, malbec, 1, 15),
     new Vino("Los Haroldos", "tinto", "Cabernet Sauvignon", 900, "./assets/Los-haroldos-cabernet.png", 2, 10),
     new Vino("Los Haroldos", "tinto", "Bonarda", 1100, "./assets/Los-Haroldos-Bonarda.png", 3, 12),
     new Vino("Los Haroldos", "blanco", "Chardonnay", 700, "./assets/los-haroldos-chardonnay.png", 4, 22),
@@ -26,7 +28,7 @@ export const listaVino = [
     new Vino("Las Perdices", "blanco", "Sweety", 1100, "./assets/las-perdices-sweety.png", 13, 20),
     new Vino("Rutini", "blanco", "Chardonnay", 1300, "./assets/Rutini_Chardonnay.jpeg", 14, 12),
     new Vino("Alamos", "tinto", "Cabernet", 1500, "./assets/alamos-cabernet.jpg", 15, 10),
-    new Vino("Alamos", "tinto", "Malbec Reserva", 1400, "./assets/alamos-malbec.png", 16, 6),
+    new Vino("Alamos", "tinto", "Malbec Reserva", 1400, "/alamos-malbec.png", 16, 6),
     new Vino("Alamos", "blanco", "Torrontes", 1350, "./assets/alamos-torrontes.png", 17, 4),
     new Vino("Alamos", "blanco", "Semillon", 1250, "./assets/alamos-chardonnay.jpg", 18, 3),
     new Vino("El Esteco", "tinto", "Cabernet Sauvignon", 1350, "./assets/elestecocabernetsauvignon.jpg", 19, 6),

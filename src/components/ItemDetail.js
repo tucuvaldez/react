@@ -15,7 +15,6 @@ const ItemDetail = ({ data, onAdd }) => {
                     <Card.Text>
                         ${data.precio}
                     </Card.Text>
-                    <Card.Text>Stock disponible:{data.stock}</Card.Text>
                     <ItemCount stock={data.stock} onAdd={onAdd} initial={0} />
                     <Button variant="primary">Comprar</Button>
 
