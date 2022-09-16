@@ -20,14 +20,24 @@
 }
 
 .counter {
-    display: flex;
     flex-direction: row;
-    margin: 10px;
-    padding: 10px;
+    margin: 8px;
+    align-items: center;
+    gap: 6px;
+
 }
 
-.counter h3 {
+
+.contador {
+    display: flex;
+}
+
+/* .counter h3 {
     padding: 10px;
+} */
+
+.lnkCompra {
+    margin-left: 15%;
 }
 
 .me-auto {
