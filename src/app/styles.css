@@ -1,15 +1,3 @@
-/* .Navbar {
-    align-items: center;
-    display: block;
-
-}
-
-.link {
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-} */
 #basic-nav-dropdown {
     justify-content: flex-end;
 }
@@ -27,14 +15,9 @@
 
 }
 
-
 .contador {
     display: flex;
 }
-
-/* .counter h3 {
-    padding: 10px;
-} */
 
 .lnkCompra {
     margin-left: 15%;
@@ -75,6 +58,17 @@
 }
 
 .detail {
-    margin-left: 10%;
+    margin: 25px;
+}
+
+.cartDetail {
+    margin: 25px;
+}
+
+.carrito {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-size: 18px;
     margin-top: 15px;
 }

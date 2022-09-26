@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import ItemDetail from './ItemDetail'
+import ItemDetail from '../pages/ItemDetail'
 import { listaVino } from '../Api'
 import { useParams } from 'react-router-dom'
 

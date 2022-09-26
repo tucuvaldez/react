@@ -9,7 +9,9 @@ export const Item = ({ item, onAdd }) => {
 
         <div className="cards col-12 col-md-4 ">
             <Card>
-                <Card.Img variant="top" src={item.img} />
+                <Link to={`/detalles/${item.id}`} >
+                    <Card.Img variant="top" src={item.img} />
+                </Link>
                 <Card.Body>
                     <Card.Title>{item.marca}</Card.Title>
                     <Card.Text>
