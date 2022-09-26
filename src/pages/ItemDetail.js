@@ -9,13 +9,12 @@ import { CartContext } from '../app/CartContext';
 
 const ItemDetail = ({ data, onAdd }) => {
     const [count, setCount] = useState(0)
-    const { addToCart, updateCart } = useContext(CartContext)
+    const { addToCart } = useContext(CartContext)
 
 
     onAdd = (c) => {
         setCount(c);
         addToCart(data, c)
-        updateCart(data)
     }
 
     return (

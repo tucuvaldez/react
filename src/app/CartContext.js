@@ -1,9 +1,9 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
     const [carrito, setCarrito] = useState([]);
-
+    const [totalCount, setTotalCount] = useState(0)
 
     const addToCart = (data, count) => {
 
@@ -21,11 +21,10 @@ export const CartProvider = ({ children }) => {
     }
     //estoy intentando mostrar la cantidad de items en el carrito´pero no logro que funcione
 
-    // const updateCart = () => {
-    //     let contadorCart = document.querySelector('#cantidadCarrito')
-    //     contadorCart.innerHTML = carrito.reduce((acc, item) => acc + item, 0)
-    //     console.log(contadorCart.inner)
-    // }
+    useEffect(() => {
+        const counter = carrito.reduce((acc, item) => acc + item.quantity, 0)
+        setTotalCount(counter)
+    }, [carrito])
 
     const clearCart = () => setCarrito([]);
 
@@ -41,7 +40,7 @@ export const CartProvider = ({ children }) => {
             clearCart,
             isInCart,
             removeProduct,
-            // updateCart
+            totalCount
         }}>
             {children}
         </CartContext.Provider>

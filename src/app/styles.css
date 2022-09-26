@@ -62,7 +62,7 @@
 }
 
 .cartDetail {
-    margin: 25px;
+    padding: 15px;
 }
 
 .carrito {
@@ -71,4 +71,22 @@
     text-align: center;
     font-size: 18px;
     margin-top: 15px;
+}
+
+.cartContainer {
+    padding: 0px 15px;
+}
+
+.backToShop {
+    background-color: #e3b52c;
+    color: black;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-width: 1px;
+}
+
+.mjeCart {
+    position: absolute;
+
 }

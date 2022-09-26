@@ -7,7 +7,7 @@ export const Item = ({ item, onAdd }) => {
 
     return (
 
-        <div className="cards col-12 col-md-4 ">
+        <div className="cards col-12 col-md-3 ">
             <Card>
                 <Link to={`/detalles/${item.id}`} >
                     <Card.Img variant="top" src={item.img} />

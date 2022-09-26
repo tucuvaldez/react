@@ -4,12 +4,12 @@ import Card from 'react-bootstrap/Card';
 import { CartContext } from '../app/CartContext';
 
 const CartDetail = ({ item }) => {
-    const { removeProduct, updateCart } = useContext(CartContext)
+    const { removeProduct } = useContext(CartContext)
 
     return (
-        <div className='cartDetail'>
+        <div className='cartDetail col-md-3'>
 
-            <Card style={{ width: '18rem' }}>
+            <Card >
                 <Card.Img variant="top" src={item.img} />
                 <Card.Body>
                     <Card.Title>{item.marca}</Card.Title>
@@ -19,7 +19,7 @@ const CartDetail = ({ item }) => {
                     <Card.Text>
                         Unidades: {item.quantity}
                     </Card.Text>
-                    <Button onClick={() => { removeProduct(item.id); updateCart() }} variant="danger">Eliminar Producto</Button>
+                    <Button onClick={() => { removeProduct(item.id) }} variant="danger">Eliminar Producto</Button>
                 </Card.Body>
             </Card>
 
