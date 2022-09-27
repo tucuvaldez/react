@@ -16,8 +16,8 @@ function NavBar() {
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
                                 <NavLink className="navLink" to='/' >Inicio</NavLink>
-                                <NavLink className="navLink" to='/categoria/blanco'>Vinos Blancos</NavLink>
-                                <NavLink className="navLink" to='/categoria/tinto'>Vinos Tintos</NavLink>
+                                <NavLink className="navLink" to='/category/blanco'>Vinos Blancos</NavLink>
+                                <NavLink className="navLink" to='/category/tinto'>Vinos Tintos</NavLink>
                             </Nav>
                         </Navbar.Collapse>
                     </div>

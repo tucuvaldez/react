@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import Item from './Item'
-import { listaVino } from '../Api'
+// import { listaVino } from '../app/Api'
 import { useParams } from 'react-router-dom'
+import { getItems } from '../app/Api'
 
-export const getProductos = () => {
+// export const getProductos = () => {
 
-    const task = new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(listaVino)
-        }, 2000)
-    });
-    return task;
-}
+//     const task = new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(listaVino)
+//         }, 2000)
+//     });
+//     return task;
+// }
 const ItemList = () => {
 
     const [listaVino, setListaVino] = useState([]);
@@ -19,9 +20,9 @@ const ItemList = () => {
 
     useEffect(() => {
         if (categoriaId) {
-            getProductos().then(response => { setListaVino(response.filter(vino => vino.tipoVino === categoriaId)) })
+            getItems().then(response => { setListaVino(response.filter(vino => vino.categoryId === categoriaId)) })
         } else {
-            getProductos().then(response => { setListaVino(response) })
+            getItems().then(response => { setListaVino(response) })
         }
     }, [categoriaId])
     return listaVino.map(item => < Item item={item} key={item.id} />)

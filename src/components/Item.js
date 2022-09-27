@@ -3,19 +3,19 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 
-export const Item = ({ item, onAdd }) => {
+export const Item = ({ item }) => {
 
     return (
 
         <div className="cards col-12 col-md-3 ">
             <Card>
                 <Link to={`/detalles/${item.id}`} >
-                    <Card.Img variant="top" src={item.img} />
+                    <Card.Img variant="top" src={item.image} />
                 </Link>
                 <Card.Body>
-                    <Card.Title>{item.marca}</Card.Title>
+                    <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
-                        El sabor de un vino unico
+                        {item.description}
                     </Card.Text>
                     <Link className='detalle' to={`/detalles/${item.id}`} >Ver Detalle</Link>
                 </Card.Body>

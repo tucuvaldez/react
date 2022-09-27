@@ -20,11 +20,11 @@ const ItemDetail = ({ data, onAdd }) => {
     return (
         <div >
             <Card className="detail" style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={data.img} />
+                <Card.Img variant="top" src={data.image} />
                 <Card.Body>
-                    <Card.Title>{data.marca}</Card.Title>
+                    <Card.Title>{data.title}</Card.Title>
                     <Card.Text>
-                        ${data.precio}
+                        ${data.price}
                     </Card.Text>
                     {count === 0 ?
                         <ItemCount stock={data.stock} onAdd={onAdd} initial={0} />

@@ -86,7 +86,7 @@
     border-width: 1px;
 }
 
-.mjeCart {
-    position: absolute;
+.emptyCart {
+    text-align: center;
 
 }
