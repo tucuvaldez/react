@@ -38,8 +38,8 @@ import { collection, getDocs, query, doc, getDoc, addDoc, deleteDoc, updateDoc, 
 import { db } from './firebase';
 // setDoc
 // CREATE
-export const createItem = async (obj) => {
-    const colRef = collection(db, 'vinoteca');
+export const createItem = async (obj, coleccion) => {
+    const colRef = collection(db, coleccion);
     const data = await addDoc(colRef, obj);
     return data.id;
 }
