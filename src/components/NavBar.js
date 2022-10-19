@@ -8,7 +8,7 @@ import CartWidget from './CartWidget';
 function NavBar() {
     return (
         <>
-            <Navbar bg="light" expand="lg">
+            <Navbar className="py-0" bg="dark" expand="lg">
                 <Container>
                     <Navbar.Brand href="/"><img src='/assets/logo.png' alt="logo" id='logo' /></Navbar.Brand>
                     <div>

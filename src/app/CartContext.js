@@ -6,38 +6,36 @@ export const CartProvider = ({ children }) => {
     const [totalCount, setTotalCount] = useState(0)
     const [precioTotal, setPrecioTotal] = useState(0)
 
+    //FUNCION PARA AGREGAR ITEMS AL CARRITO
     const addToCart = (data, count) => {
 
-        console.log(data)
         if (isInCart(data.id)) {
             setCarrito(carrito.map(prod => {
-
                 return prod.id === data.id ? { ...prod, quantity: prod.quantity + count, precioTotal: (prod.quantity + count) * prod.price, stock: prod.stock - count } : prod
-
             }));
         } else {
-
             setCarrito([...carrito, { ...data, quantity: count, precioTotal: data.price * count, stock: data.stock - count }]);
         }
 
     }
-    //estoy intentando mostrar la cantidad de items en el carrito´pero no logro que funcione
+
+    // ACTUALIZO CANTIDAD DE ITEMS Y PRECIO TOTAL EN EL CARRITO, CADA VEZ QUE EL CARRITO SE MODIFICA
 
     useEffect(() => {
         const counter = carrito.reduce((acc, item) => acc + item.quantity, 0)
         setTotalCount(counter)
-    }, [carrito])
-
-    useEffect(() => {
         const montoFinal = carrito.reduce((acc, item) => acc + item.price * item.quantity, 0)
         setPrecioTotal(montoFinal)
     }, [carrito])
 
 
+    //FUNCION PARA LIMPIAR CARRITO
     const clearCart = () => setCarrito([]);
 
+    //FUNCION PARA CORROBORAR ITEM EN CARRITO Y NO REPETIR
     const isInCart = (id) => carrito.find(prod => prod.id === id) ? true : false;
 
+    //FUNCION PARA ELIMINAR UN ITEM ESPECIFICO DEL CARRITO
     const removeProduct = (id) => setCarrito(carrito.filter(prod => prod.id !== id));
 
 

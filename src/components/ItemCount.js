@@ -15,21 +15,19 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         setQuantity(quantity - 1)
     }
 
-
     return (
         <div className='counter'>
             <Card.Body className='contador'>
-                <Button size='sm' onClick={() => { decrease() }} disabled={cant === initial}>
+                <Button size='sm' variant="outline-dark" onClick={() => { decrease() }} disabled={cant === initial}>
                     -
                 </Button>
                 <Card.Text>{cant}</Card.Text>
-                <Button size='sm' onClick={() => { increase() }} disabled={cant === stock}>
+                <Button size='sm' variant="outline-dark" onClick={() => { increase() }} disabled={cant === stock}>
                     +
                 </Button>
-                <Button className='btnCompra' variant='success' onClick={() => onAdd(cant)}>Agregar al Carrito</Button>
+                <Button className='btnCompra' variant='outline-dark' onClick={() => onAdd(cant)}>Agregar al Carrito</Button>
             </Card.Body>
             <Card.Footer>Disponibilidad en stock:{quantity}</Card.Footer>
-
         </div>
 
     )

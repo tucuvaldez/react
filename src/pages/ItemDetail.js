@@ -11,7 +11,6 @@ const ItemDetail = ({ data, onAdd }) => {
     const [count, setCount] = useState(0)
     const { addToCart } = useContext(CartContext)
 
-
     onAdd = (c) => {
         setCount(c);
         addToCart(data, c)
@@ -24,13 +23,13 @@ const ItemDetail = ({ data, onAdd }) => {
                 <Card.Body>
                     <Card.Title>{data.title}</Card.Title>
                     <Card.Text>
-                        ${data.price}
+                        Precio por unidad: ${data.price}
                     </Card.Text>
                     {count === 0 ?
                         <ItemCount stock={data.stock} onAdd={onAdd} initial={0} />
                         :
                         <Link className="lnkCompra" to='/cart/'>
-                            <Button variant="primary">Terminar mi compra</Button>
+                            <Button variant="outline-dark">Terminar mi compra</Button>
 
                         </Link>
                     }

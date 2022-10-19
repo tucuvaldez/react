@@ -1,20 +1,20 @@
 import { useContext, useState, } from 'react'
-import { Button, Form, Spinner } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { createItem } from '../app/Api';
-import { CartContext } from '../app/CartContext'
+import { CartContext } from '../app/CartContext';
 import CartDetail from '../pages/CartDetail';
-
-
+import swal from 'sweetalert';
+import Spinners from '../components/Spinner';
 
 export const Cart = () => {
-    const { carrito } = useContext(CartContext)
-    const { clearCart } = useContext(CartContext)
-    const { precioTotal } = useContext(CartContext)
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
-    const [phone, setPhone] = useState()
-    const [spinnerShow, setSpinnerShow] = useState(false)
+
+    const { carrito, clearCart, precioTotal } = useContext(CartContext)
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [checkEmail, setCheckEmail] = useState('')
+    const [phone, setPhone] = useState('')
+    const [showSpinner, setShowSpinner] = useState(false)
 
     const order = {
         item: [],
@@ -22,19 +22,38 @@ export const Cart = () => {
         date: '',
         total: precioTotal
     }
+    //REALIZO UN CHECKEO DE DATOS EN FORM, PARA HABILITAR EL BOTON DE COMPRA
+    const checkButtonState = () => {
+        return (name === '' || email === '' || phone === '' || checkEmail === '')
+    }
 
-
+    //AL EJECUTAR SUBMIT, CREO UNA ORDEN DE COMPRA CON LOS DATOS INGRESADOS Y LOS PRODUCTOS SELECCIONADOS, Y SE ENVIA A LA BASE DE DATOS
     const submit = (e) => {
         e.preventDefault()
-        setSpinnerShow(true)
-        order.item = carrito.map(prod => ({ price: prod.price, quantity: prod.quantity, id: prod.id, name: prod.description }));
-        order.date = new Date();
-        console.log(order)
-        createItem(order, 'orders')
-            .then((id) => {
-                setSpinnerShow(false)
-                alert(`Su codigo de orden es ${id}`)
-            })
+        if (email === checkEmail) {
+            setShowSpinner(true)
+            order.item = carrito.map(prod => ({ price: prod.price, quantity: prod.quantity, id: prod.id, name: prod.description }));
+            order.date = new Date();
+            createItem(order, 'orders')
+                .then((id) => {
+                    setShowSpinner(false)
+                    swal({
+                        title: "Gracias por tu compra!",
+                        text: `Tu código de compra es ${id}!`,
+                        icon: "success",
+                        button: "Salir!",
+                    });
+                    clearCart()
+                })
+        } else {
+            swal({
+                title: "Las direcciones de email no coinciden",
+                text: 'Por favor corrobore su email',
+                icon: "error",
+                button: "Salir!",
+            });
+        }
+
     }
 
     return (
@@ -43,13 +62,9 @@ export const Cart = () => {
             {carrito.length > 0 ?
                 <>
                     <div>
-                        {spinnerShow &&
-                            <Spinner animation="border" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </Spinner>
-                        }
-                        <Form onSubmit={submit}>
+                        <Spinners show={showSpinner} />
 
+                        <Form className="mt-3" onSubmit={submit}>
                             <Form.Group className="mb-3" controlId="formPassword">
                                 <Form.Label>Nombre y Apellido</Form.Label>
                                 <Form.Control type="text" placeholder="Nombre y Apellido" value={order.nombre} onChange={e => setName(e.target.value)} />
@@ -57,15 +72,14 @@ export const Cart = () => {
                             <Form.Group className="mb-3" controlId="formEmail" >
                                 <Form.Label>Direccion Email</Form.Label>
                                 <Form.Control type="email" placeholder="Email" value={order.email} onChange={e => setEmail(e.target.value)} />
-                                <Form.Text className="text-muted">
-                                    Nunca compartiremos tu email con nadie.
-                                </Form.Text>
+                                <Form.Label>Confirmar Email</Form.Label>
+                                <Form.Control type="email" placeholder="Email" value={order.checkEmail} onChange={e => setCheckEmail(e.target.value)} />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formPhone">
                                 <Form.Label>Numero de telefono</Form.Label>
                                 <Form.Control type="number" placeholder="Enter phone" value={order.telefono} onChange={e => setPhone(e.target.value)} />
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button disabled={checkButtonState()} variant="success" type="submit">
                                 Finalizar Compra
                             </Button>
                         </Form>
@@ -84,5 +98,4 @@ export const Cart = () => {
                 </div>}
         </div >
     )
-
 }

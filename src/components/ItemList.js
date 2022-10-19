@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Item from './Item'
-// import { listaVino } from '../app/Api'
 import { useParams } from 'react-router-dom'
 import { getItems } from '../app/Api'
 
-// export const getProductos = () => {
 
-//     const task = new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve(listaVino)
-//         }, 2000)
-//     });
-//     return task;
-// }
-const ItemList = () => {
+const ItemList = ({ toggleSpinnerShow }) => {
 
     const [listaVino, setListaVino] = useState([]);
     const { categoriaId } = useParams();
 
+    //AQUI SE PERMITE FILTRAR LOS PRODUCTOS SEGUN CATEGORIAS, O MOSTRAR TODOS
     useEffect(() => {
+        toggleSpinnerShow(true);
         if (categoriaId) {
-            getItems().then(response => { setListaVino(response.filter(vino => vino.categoryId === categoriaId)) })
+            getItems().then(response => {
+                setListaVino(response.filter(vino => vino.categoryId === categoriaId));
+                toggleSpinnerShow(false);
+            })
         } else {
-            getItems().then(response => { setListaVino(response) })
+            getItems().then(response => {
+                setListaVino(response);
+                toggleSpinnerShow(false);
+            })
         }
     }, [categoriaId])
+
     return listaVino.map(item => < Item item={item} key={item.id} />)
 
 }
